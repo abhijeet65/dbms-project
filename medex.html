@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<?php include('sample.php'); ?>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>MedEx</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+      background-color: #99ccff; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+  .bg-4 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+  .modal-header, h4, .close {
+      background-color: #3399ff;
+      color:white !important;
+      text-align: center;
+      font-size: 40px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  .addDoctor {
+     position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 50px; 
+  }
+  .updateDoctor {
+     position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 50px; 
+  }
+    </style>
+  }
+</head>
+<body>
+ 
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">MedEx</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">WHO</a></li>
+        <li><a href="#">WHAT</a></li>
+        <li><a href="#">WHERE</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+  <h3 class="margin">Welcome to MedEx!!</h3>
+  <img src="stethescope.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
+  <h3>Find your best doctor here</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">About the website</h3>
+  <p>This is a website made to facilitate the common process of finding the right doctor based on the needs of a person. We believe that the process, otherwise is no less than a debacle!
+  To find the right doctor for your loved ones, start off by clicking the search button below  </p>
+   <button type="button" class="btn btn-default btn-lg" id="myBtn">Search your doctor here</button>
+
+</div>
+
+<!-- Third Container (Grid) -->
+
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Search your doctor here</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" action="search.php" method="post">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Doctor designation</label>.
+              <input type="text" class="form-control" id="usrname" name="domain" placeholder="Enter Doctor designation">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> years of experience</label>
+              <input type="text" class="form-control" id="psw" name="yoe" placeholder="Enter years of experience">
+            </div>
+           
+			<div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Hospital Name</label>
+              <input type="text" class="form-control" id="hname" name="hname" placeholder="Enter Hospital Name ">
+            </div>
+			<div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Hospital Rating</label>
+              <input type="text" class="form-control" id="hrating" name="hrating" placeholder="Hospital Rating">
+            </div>
+			<div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Location</label>
+              <input type="text" class="form-control" id="loc" name="loc" placeholder="Location">
+            </div>
+			<div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Doctor Rating</label>
+              <input type="text" class="form-control" id="drating" name="drating" placeholder="Doctor Rating">
+            </div>
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Search</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+  <div class = "addDoctor">
+  <button type="button" class="btn btn-warning btn-lg" id="myBtn2">Add a doctor</button>
+  </div> 
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+  <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Enter the doctor details here</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" action="sample.php" method="post">
+          <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Doctor name</label>
+              <input type="text" class="form-control" id="usrname" name="name" placeholder="Enter Doctor name" required>
+            </div>
+            <div class="form-group">
+              <label for="domain"><span class="glyphicon glyphicon-user"></span> Doctor designation</label>
+              <input type="text" class="form-control" id="usrname" name="domain" placeholder="Enter Doctor designation" required>
+            </div>
+			<div class="form-group">
+              <label for="domain"><span class="glyphicon glyphicon-user"></span> Gender</label>
+              <input type="text" class="form-control" id="usrname" name="gender" placeholder="Enter gender" required>
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> years of experience</label>
+              <input type="text" class="form-control" id="psw"  name="yoe" placeholder="Enter years of experience" required>
+            </div>
+            
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Save</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          
+        </div>
+      </div>
+      </div>
+      </div>
+	  <div class = "updateDoctor">
+  <button type="button" class="btn btn-warning btn-lg" id="myBtn3">Update details</button>
+  </div> 
+  <div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+  <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Enter the new details here</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" action="update.php" method="post">
+          <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Doctor name</label>
+              <input type="text" class="form-control" id="usrname" name="name" placeholder="Enter Doctor name" required>
+            </div>
+            <div class="form-group">
+              <label for="domain"><span class="glyphicon glyphicon-user"></span> Doctor designation</label>
+              <input type="text" class="form-control" id="usrname" name="domain" placeholder="Enter new designation" required>
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> years of experience</label>
+              <input type="text" class="form-control" id="psw"  name="yoe" placeholder="Enter years of experience" required>
+            </div>
+           
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Update </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         
+        </div>
+      </div>
+      </div>
+      </div>
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Website Made By Anusha S, Keerthana N S, Madhura M</p> 
+</footer>
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+$(document).ready(function(){
+    $("#myBtn2").click(function(){
+        $("#myModal2").modal();
+    });
+});
+$(document).ready(function(){
+    $("#myBtn3").click(function(){
+        $("#myModal3").modal();
+    });
+});
+</script>
+</body>
+</html>
